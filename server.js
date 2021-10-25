@@ -6,8 +6,6 @@ const io = require('socket.io')(3000, {
 });
 
 io.on('connection', (socket) => {
-  console.log('Socket.io is now connected');
-  socket.emit('test', 'You are now connected with local socket server');
   socket.on('stroke', (data) => {
     console.log(data);
     socket.emit('strokeResult', data);
